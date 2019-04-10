@@ -2424,7 +2424,7 @@ ga('send', 'pageview');
             <div class="modal-body">
                 <div class="row">
                     <div style="margin-top: 15px; margin-left: 40px;">
-                        <input type="password" style="height:30px;" name="password" id="enterPassword">&nbsp;<button name="checkPassword" value="Enter" onclick="checkPassword()" class="btn btn--outlined">Enter</button>
+                        <input type="password" style="height:30px;" name="password" onkeydown="if(event.keyCode == 13) checkPassword()" id="enterPassword">&nbsp;<button name="checkPassword" value="Enter" onclick="checkPassword()" class="btn btn--outlined">Enter</button>
                         &nbsp;&nbsp;&nbsp;
                         <span id="failedMessage" class="hide" style="color:red">No no no no...</span>
                     </div>

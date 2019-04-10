@@ -195,8 +195,10 @@ jQuery(document).ready(function() {
 		});
 
 		jQuery('#addToCart').click(function () {
-			jQuery('#addToCartModel').modal('show');
+
 		});
+
+
 
 
 
@@ -204,6 +206,9 @@ jQuery(document).ready(function() {
 jQuery(document).ready(function(){
 	jQuery('.hasTooltip').tooltip({"html": true,"container": "body"});
 });
+function addToCart() {
+	jQuery('#addToCartModel').modal('show');
+}
 	</script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
         <!--[if lt IE 9]>
@@ -750,7 +755,7 @@ jQuery(document).ready(function(){
 					<input type="button" class="quantity-controls quantity-minus">
 				</span>
 
-				<span class="addtocart-button" style="height: 34px; width: 135px;cursor:pointer;">
+				<span class="addtocart-button" style="height: 34px; width: 135px;cursor:pointer;" onclick="addToCart()">
 					<a name="addtocart" id="addToCart" href="javascript:void(0)" style="position: relative;top: 8px;left: 10px;color: white;font-size:13px;"> Add to Cart</a>
 				</span>
 				<noscript>&lt;input type="hidden" name="task" value="add"/&gt;</noscript>
