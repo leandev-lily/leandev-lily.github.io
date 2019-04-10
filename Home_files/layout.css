@@ -1,0 +1,94 @@
+/* Slide layout */
+.ot-slide{
+	position: relative;
+}
+.ot-slide .ot-slide-i{
+	position: relative;
+	z-index: 1;
+}
+.ot-slide .ot-item{
+	width: 100%;
+}
+.ot-slide .ot-control{
+	position: absolute;
+	z-index: 2;
+	top: 50%;
+	left: 0;
+	width: 40px;
+	height: 40px;
+	margin-top: -20px;
+	background: url("../images/prev.png") scroll 50% 50% no-repeat;
+	opacity: 0.7;
+	filter:alpha(opacity=70) !important; /* For IE8 and earlier */
+}
+.ot-slide .ot-control.ot-next{
+	left: auto;
+	right: 0;
+	background: url("../images/next.png") scroll 50% 50% no-repeat;
+}
+.ot-slide .ot-control:hover{
+	opacity: 1;
+	filter:alpha(opacity=100) !important; /* For IE8 and earlier */
+}
+
+/* Scroll Layout */
+.ot-scroll .ot-item{
+	float: left;
+}
+
+/* Custom Layout */
+.clear{
+	border: medium none;
+    clear: both;
+    display: block;
+    float: none;
+    height: 0;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+}
+.ot-vm-cat{
+	float: left;
+}
+.ot-vm-cat .ot-vm-cat-i {
+	margin: 5px;
+	padding: 10px;
+}
+[class*="span"].ot-vm-cat .ot-vm-cat-i {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+.ot-vm-cat:hover .ot-vm-cat-i {
+	background: #ffffff;
+}
+.ot-vm-cat .ot-vm-cat-ii {
+	position: relative;
+}
+.ot-vm-cat .ot-cat-image img {
+	width: 100%;
+}
+.ot-vm-cat .ot-cat-detail {
+	margin: 0;
+	background: #131b23;
+	color: #ffffff;
+}
+.ot-vm-cat-i:hover .ot-cat-detail {
+	background: #985f08;
+}
+.ot-vm-cat .ot-cat-over {
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	padding: 0px;
+	width: 100%;
+}
+.ot-vm-cat .ot-cat-detail-i {
+	margin: 0;
+	padding: 10px;
+}
+.ot-vm-cat .ot-cat-name{
+	margin: 0px;
+}
+.ot-vm-cat .ot-cat-name a {
+	color: #ffffff;
+}

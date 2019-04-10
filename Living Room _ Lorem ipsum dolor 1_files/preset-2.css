@@ -1,0 +1,153 @@
+/**
+*	@version	$Id: preset-2.css 9 2013-03-21 09:47:13Z linhnt $
+*	@package	OMG Responsive Template for Joomla! 2.5
+*	@subpackage	preset css file for template ot_dulcet
+*	@copyright	Copyright (C) 2009 - 2013 Omegatheme. All rights reserved.
+*	@license	GNU/GPL version 2, or later
+*	@website:	http://www.omegatheme.com
+*	Support Forum - http://www.omegatheme.com/forum/
+*/
+
+/* 
+* Define: color, font-family, font-size, etc. 
+* for body, a, heading, etc.
+*/
+
+/* PRESET STYLE 2 - Color B */
+
+
+a, a:hover, a:focus, li a:hover{
+    color: #c44e16;
+}
+li a{
+	color: #999;
+}
+.ot_logo a{
+	background: url("../images/style2/logo.png");
+	width: 242px;
+	height: 54px;
+	display: block;
+}
+.sectionFooter2 .ot_logo a{
+	margin: 0 auto;
+}
+.ot_logo img{
+	opacity: 0;
+}
+.gotop {
+    background-image: url("../images/style2/top.png");
+}
+.custom-title {
+    color: #c44e16;
+}
+.vmCartModule .ico-cart {
+    background-image: url("../images/style2/cart-icon.png");
+}
+.vmCartModule .ot-mycart {
+    color: #c44e16;
+}
+
+.otmenu-desk-wrapper .ot-menu a.level1 {
+	color: #787676;
+}
+.mainmenu .otmenu-desk-wrapper .ot-menu li.level1.hover a.level1,
+.mainmenu .otmenu-desk-wrapper .ot-menu li.level1.hover .item-separator.level1{
+	background: #c8480e;
+	color: #FFFFFF;
+}
+.mainmenu .otmenu-desk-wrapper .ot-menu li.hover li.hover a,
+.mainmenu .otmenu-desk-wrapper .ot-menu li.hover li.hover li.hover a,
+.mainmenu .otmenu-desk-wrapper .ot-menu li.hover li.hover li.hover li.hover a,
+.mainmenu .otmenu-desk-wrapper .ot-menu li.hover li.hover li.hover li.hover li.hover a,
+.mainmenu .otmenu-desk-wrapper .ot-menu li.active li.active a,.mainmenu .otmenu-desk-wrapper .ot-menu li.level1.active a.level1,.mainmenu .otmenu-desk-wrapper .ot-menu li.level1.hasChild.active a.level1,
+.mainmenu .otmenu-desk-wrapper .ot-menu li.active li.active li.active a,
+.mainmenu .otmenu-desk-wrapper .ot-menu li.active li.active li.active li.active a,
+.mainmenu .otmenu-desk-wrapper .ot-menu li.active li.active li.active li.active li.active a{
+	background: #c8480e;
+	color: #FFF;
+	text-decoration: none; 
+}
+.mainmenu .otmenu-desk-wrapper .ot-menu li.level1.hasChild.hover a.level1{
+	background: #c8480e url("../images/mainmenu-drop-arrow.png") no-repeat 96% 50%;
+	position: relative;
+	z-index: 2;	color:#fff;
+}
+.mainmenu .otmenu-desk-wrapper .ot-menu li.hasChild li.hasChild.hover > div > a{
+	background: #c8480e url("../images/arrow.png") no-repeat scroll 98% 50%;	color:#fff;
+}
+.ot-custom-search input.button{
+    background: url('../images/style2/search-btn.png') no-repeat;
+}
+
+.sectionFooter1, .sectionFooter2 {
+	background-color: #404040;
+}
+
+.custom_subscribe button.custom_btn {
+    background-image: url("../images/style2/subscribe_btn.png");
+}    
+
+/* ---* MOD VIRTUEMART CAT SCOLLBAR *--- */
+.category .spacer .ot-cat-detail, 
+.ot-vmcat-scroll .ot-vm-cat .ot-cat-detail {
+    background: none repeat scroll 0 0 #131b23;
+    color: #ffffff;
+}
+.category .spacer:hover .ot-cat-detail, 
+.ot-vmcat-scroll .ot-vm-cat-i:hover .ot-cat-detail {
+    background: none repeat scroll 0 0 #a33702;
+}
+.category .spacer .ot-cat-detail-i, 
+.ot-vm-cat .ot-cat-detail .ot-cat-detail-i {
+    background: none repeat scroll 0 0 #2f3d44;
+}
+.category .spacer:hover .ot-cat-detail-i, 
+.ot-vmcat-scroll .ot-vm-cat-i:hover .ot-cat-detail-i {
+    background: none repeat scroll 0 0 #c4430d;
+}
+.featured-view .spacer .product-price span, 
+.latest-view .spacer .product-price span, 
+.topten-view .spacer .product-price span, 
+.recent-view .spacer .product-price span, 
+.related-products-view .spacer .product-price span, 
+.browse-view .row .product .spacer .product-price span, 
+.product .spacer .product-price span, 
+.product .spacer .product-rel-price span ,
+.productdetails-view .vmproduct-price .vm-price-value {
+    color: #c44e16;
+}
+.addtocart-bar .addtocart-button,
+div.product .spacer .product-details {
+	background-color: #2e2e2e;
+}
+span.addtocart-button input.addtocart-button, 
+span.addtocart-button input.notify-button,
+.featured-view .spacer .product-details > span, 
+.latest-view .spacer .product-details > span, 
+.topten-view .spacer .product-details > span, 
+.recent-view .spacer .product-details > span, 
+.related-products-view .spacer .product-details > span, 
+.browse-view .row .product .spacer .product-details > span,
+div.product .spacer .product-details > span {
+    background-color: #515151;
+}
+.addtocart-bar .addtocart-button:hover,
+.featured-view .spacer .product-details:hover, 
+.latest-view .spacer .product-details:hover, 
+.topten-view .spacer .product-details:hover, 
+.recent-view .spacer .product-details:hover, 
+.related-products-view .spacer .product-details:hover, 
+.browse-view .row .product .spacer .product-details:hover,
+div.product .spacer .product-details:hover{
+	background-color: #a43902;
+}
+.addtocart-bar .addtocart-button:hover input,
+.featured-view .spacer .product-details:hover > span, 
+.latest-view .spacer .product-details:hover > span, 
+.topten-view .spacer .product-details:hover > span, 
+.recent-view .spacer .product-details:hover > span, 
+.related-products-view .spacer .product-details:hover > span, 
+.browse-view .row .product .spacer .product-details:hover > span,
+div.product .spacer .product-details:hover>span{
+	background-color: #d15e1b;
+}
