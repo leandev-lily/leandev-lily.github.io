@@ -117,10 +117,10 @@ Virtuemart.product = function(carts) {
 		if(isNaN(Ste)){
 			Ste = 1;
 		}
-		addtocart.click(function(e) {
-			Virtuemart.sendtocart(cart);
-			return false;
-		});
+		// addtocart.click(function(e) {
+		// 	Virtuemart.sendtocart(cart);
+		// 	return false;
+		// });
 		plus.click(function() {
 			var Qtt = parseInt(quantity.val());
 			if (!isNaN(Qtt)) {
