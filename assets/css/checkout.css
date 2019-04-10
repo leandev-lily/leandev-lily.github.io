@@ -47,11 +47,6 @@ body {
     background: #f2f2f2
 }
 
-a {
-    color: #005c9c;
-    text-decoration: none
-}
-
 input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0
