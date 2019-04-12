@@ -15,6 +15,12 @@ var productsDefinition = [{
         "price": "11000",
         "image": "photo2.jpg",
         "url": "Living Room _ Lorem ipsum dolor 10.html"
+    },
+    {
+        "name": "LOREM IPSUM DOLOR 13",
+        "price": "15003",
+        "image": "photo3.jpg",
+        "url": "Living Room _ Lorem ipsum dolor 13.html"
     }];
 var totalSum = 0;
 jQuery(document).ready(function () {
@@ -191,21 +197,21 @@ function show6monthfee() {
     jQuery('#rate1').html('5.8%');
     jQuery('#rate2').html('5.5%');
     jQuery('#rate3').html('6.5%');
-    jQuery('#mc6').html(totalSum/6+' sek/month');
-    jQuery('#mc12').html(totalSum/12+' sek/month');
-    jQuery('#mc1').html(totalSum/6+' sek/month');
-    jQuery('#mc2').html(totalSum/6+'sek/month');
-    jQuery('#mc3').html(totalSum/6+' sek/month');
+    jQuery('#mc6').html(formatPrice(totalSum/6)+' sek/month');
+    jQuery('#mc12').html(formatPrice(totalSum/12)+' sek/month');
+    jQuery('#mc1').html(formatPrice(totalSum/6)+' sek/month');
+    jQuery('#mc2').html(formatPrice(totalSum/6)+'sek/month');
+    jQuery('#mc3').html(formatPrice(totalSum/6)+' sek/month');
 }
 
 function show12monthfee() {
     jQuery('#rate1').html('3.8%');
     jQuery('#rate2').html('3.5%');
     jQuery('#rate3').html('4.5%');
-    jQuery('#mc12').html(totalSum/12+' sek/month');
-    jQuery('#mc1').html(totalSum/12+' sek/month');
-    jQuery('#mc2').html(totalSum/12+' sek/month');
-    jQuery('#mc3').html(totalSum/12+' sek/month');
+    jQuery('#mc12').html(formatPrice(totalSum/12)+' sek/month');
+    jQuery('#mc1').html(formatPrice(totalSum/12)+' sek/month');
+    jQuery('#mc2').html(formatPrice(totalSum/12)+' sek/month');
+    jQuery('#mc3').html(formatPrice(totalSum/12)+' sek/month');
 }
 function clickChooseBank() {
     jQuery(".progress-bar-info").css('width','0%');
