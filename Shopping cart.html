@@ -32,6 +32,7 @@
     <link href="./Shopping cart_files/omgmenu.css" rel="stylesheet" type="text/css">
     <link href="./Shopping cart_files/omgmenu_mobile.css" rel="stylesheet" type="text/css">
     <link href="./assets/css/checkout.css" rel="stylesheet" type="text/css">
+    <link href="./assets/css/spin.css" rel="stylesheet" type="text/css">
     <style type="text/css">
         body {
             font: 14px/18px Open Sans;
@@ -103,6 +104,24 @@
             top: 15px;
             left: 10px;
         }
+        .payment_options{
+            border: 1px solid;
+            padding: 12px;
+            width: 371px;
+            margin-left: 36px;
+        }
+
+        .selected{
+            border-color: black;
+            color: black;
+        }
+
+        .payment_options:hover{
+            color: black;
+        }
+        .active{
+            cursor: pointer;
+        }
 
     </style>
     <script async="" src="./Shopping cart_files/analytics.js"></script>
@@ -141,6 +160,8 @@
     <script src="./Shopping cart_files/update_cart.js" type="text/javascript"></script>
     <script src="./Shopping cart_files/omgmenu.jq.js" type="text/javascript"></script>
     <script src="./assets/js/checkout.js" type="text/javascript"></script>
+    <script src="./assets/js/spin.min.js" type="text/javascript"></script>
+    <script src="./assets/js/cart.js" type="text/javascript"></script>
     <script type="text/javascript">
 
 
@@ -164,6 +185,7 @@
                 });
             })(jQuery);
         }
+
     </script>
 </head>
 <body id="ot-body" class="full-width">
@@ -238,9 +260,8 @@
 
                                     <span class="ot-mycart">My cart:</span><br>
 
-                                    Now in your cart<a
-                                        href="homepage.html/shop-store/cart"><strong>
-                                    0 items</strong></a>
+                                    Now in your cart<a href="Shopping%20cart.html"><strong>
+                                    <span id="itemQuality"></span>&nbsp;items</strong></a>
                                 </div>
 
 
@@ -1074,7 +1095,7 @@
                                     <div>
                                         <h1 class="cart-title">Cart</h1>
                                         <br>
-                                        <table class="cart-summary table table-bordered" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <table id="cartTable" class="cart-summary table table-bordered" cellspacing="0" cellpadding="0" border="0" width="100%">
                                             <tbody>
                                             <tr>
                                                 <th align="left">Name</th>
@@ -1082,85 +1103,9 @@
                                                 <th align="right" width="158px">Quantity</th>
                                                 <th align="right" width="100px">Total</th>
                                             </tr>
-                                            <tr valign="top" class="sectiontableentry1">
-                                                <td align="left">
-                                                    <span class="cart-images">
-                                                        <img src="./assets/images/photo15.jpg">
-                                                    </span>
-                                                    <a href="" class="cart-item-link">Lorem ipsum dolor 13</a>
-                                                    <div class="vm-customfield-cart"></div>
-                                                </td>
-                                                <td align="center">
-                                                    <div class="PricesalesPrice vm-display vm-price-value">
-                                                        <span class="vm-price-desc"></span>
-                                                        <span class="PricesalesPrice">33 900,00 kr</span>
-                                                    </div>
-                                                </td>
-                                                <td align="right">
-                                                    <div class="cart-product__quantity">
-                                                        <div class="quantity-form">
-                                                            <div>
-                                                                <button title="Increase" class="quantity-form__decrease-button"></button>
-                                                                <input type="number" min="0" aria-label="Antal" class="quantity-form__quantity-value" value="1">
-                                                                <button title="Decrease" class="quantity-form__increase-button"></button>
-                                                            </div>
-                                                            <button title="Remove" class="quantity-form__delete-button"></button>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td colspan="1" align="right">
-                                                    <div class="PricesalesPrice vm-display vm-price-value"><span
-                                                            class="vm-price-desc"></span><span class="PricesalesPrice">33 900,00 kr</span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr valign="top" class="sectiontableentry2">
-                                                <td align="left">
-                                                    <span class="cart-images">
-                                                        <img src="./assets/images/photo1.jpg">
-                                                    </span>
-                                                    <a href="#" class="cart-item-link">Lorem ipsum dolor 14</a>
-                                                    <div class="vm-customfield-cart"></div>
-                                                </td>
-                                                <td align="center">
-                                                    <span class="line-through"></span><br>
-                                                    <div class="PricesalesPrice vm-display vm-price-value"><span
-                                                            class="vm-price-desc"></span><span class="PricesalesPrice">14 500,00 kr</span>
-                                                    </div>
-                                                </td>
-
-                                                <td align="right">
-                                                    <div class="cart-product__quantity">
-                                                        <div class="quantity-form">
-                                                            <div>
-                                                                <button title="Minska antal" class="quantity-form__decrease-button"></button>
-                                                                <input type="number" min="0" aria-label="Antal" class="quantity-form__quantity-value" value="1">
-                                                                <button title="Öka antal" class="quantity-form__increase-button"></button>
-                                                            </div>
-                                                            <button title="Ta bort" class="quantity-form__delete-button"></button>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td colspan="1" align="right">
-                                                    <span class="line-through"></span><br>
-                                                    <div class="PricesalesPrice vm-display vm-price-value">
-                                                        <span class="vm-price-desc"></span><span class="PricesalesPrice">14 500,00 kr</span>
-                                                    </div>
-                                                </td>
-
-                                            </tr>
-
 
                                             <!--Begin of SubTotal, Tax, Shipment, Coupon Discount and Total listing -->
-                                            <tr class="sectiontableentry2">
-                                                <td colspan="3" align="right">Total:</td>
 
-                                                <td align="right"><strong>
-                                                    <div class="PricebillTotal vm-display vm-price-value"><span
-                                                            class="vm-price-desc"></span><span class="PricebillTotal">48 400,00 kr</span>
-                                                    </div>
-                                                </strong></td>
-                                            </tr>
                                             </tbody>
                                         </table>
                                         <div class="payments_signin_button"></div>
@@ -1392,23 +1337,23 @@
                                                 <div>We support multiple payment methods in our website.</div>
                                                 <hr>
                                                 <div style="font-size: 16px;" id="inactivePayment">
-                                                    <ul>
+                                                    <ul class="payment_options">
                                                         <li class="tags-title glyphicon glyphicon-tags">&nbsp;</li>
                                                         <span>Pay by invoice in 14 days</span>
                                                     </ul>
-                                                    <ul>
+                                                    <ul class="payment_options">
                                                         <li class="tags-title glyphicon glyphicon-tags">&nbsp;</li>
                                                         <span>Installments</span>
                                                     </ul>
-                                                    <ul>
+                                                    <ul class="payment_options">
                                                         <li class="tags-title glyphicon glyphicon-tags">&nbsp;</li>
                                                         <span>Pay end of next month</span>
                                                     </ul>
-                                                    <ul>
+                                                    <ul class="payment_options">
                                                         <li class="tags-title glyphicon glyphicon-tags">&nbsp;</li>
                                                         <span>Swish</span>
                                                     </ul>
-                                                    <ul>
+                                                    <ul class="payment_options">
                                                         <li class="tags-title glyphicon glyphicon-tags">&nbsp;</li>
                                                         <span>Paypal</span>
                                                     </ul>
@@ -1418,27 +1363,28 @@
                                                         <p>Personnummer: <u>193504049135</u></p>
                                                     </div>
                                                     <hr>
-                                                    <ul>
-                                                        <img src="./assets/images/check.jpeg" height="22px" width="22px"/>
+                                                    <ul class="payment_options active" onclick="selectPaymentOption(this)">
+                                                        <li class="tags-title glyphicon glyphicon-tags">&nbsp;</li>
                                                         <a style="cursor: pointer;">Pay by invoice in 14 days</a>
                                                     </ul>
-                                                    <ul>
-                                                        <img src="./assets/images/check.jpeg" height="22px" width="22px"/>
-                                                        <a style="cursor: pointer;" onclick="installmentsClick()">Installments</a>
+                                                    <ul class="payment_options active" onclick="installmentsClick()">
+                                                        <li class="tags-title glyphicon glyphicon-tags">&nbsp;</li>
+                                                        <a style="cursor: pointer;">Installments</a>
                                                     </ul>
-                                                    <ul>
-                                                        <img src="./assets/images/check.jpeg" height="22px" width="22px"/>
+                                                    <ul class="payment_options active" onclick="selectPaymentOption(this)">
+                                                        <li class="tags-title glyphicon glyphicon-tags">&nbsp;</li>
                                                         <a style="cursor: pointer;">Pay end of next month</a>
                                                     </ul>
-                                                    <ul>
-                                                        <img src="./assets/images/check.jpeg" height="22px" width="22px"/>
+                                                    <ul class="payment_options active" onclick="selectPaymentOption(this)">
+                                                        <li class="tags-title glyphicon glyphicon-tags">&nbsp;</li>
                                                         <a style="cursor: pointer;">Swish</a>
                                                     </ul>
-                                                    <ul>
-                                                        <img src="./assets/images/check.jpeg" height="22px" width="22px"/>
+                                                    <ul class="payment_options active" onclick="selectPaymentOption(this)">
+                                                        <li class="tags-title glyphicon glyphicon-tags">&nbsp;</li>
                                                         <a style="cursor: pointer;">Paypal</a>
                                                     </ul>
                                                 </div>
+                                                <hr>
                                                 <div style="font-size: 16px;display: none;" id="installmentsDiv">
                                                     <div>
                                                         <p>Personnummer: <u>193504049135</u></p>
@@ -1447,8 +1393,8 @@
                                                     <div class="step-content" style="display: block;">
                                                         <div class="step-content__inner">
                                                             <div class="installmentOption">
-                                                                <input type="radio" name="term" checked="" onclick="show6monthfee()">&nbsp;6 months from 3161 SEK/Month&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                <input type="radio" name="term" onclick="show12monthfee()">12 months from 1550 SEK/Month
+                                                                <input type="radio" name="term" checked="" onclick="show6monthfee()">&nbsp;6 months from <span id="mc6">3170 sek/month</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                <input type="radio" name="term" onclick="show12monthfee()">12 months from <span id="mc12">3170 sek/month</span>
                                                             </div>
                                                             <div class="loanOption">
                                                                 <div class="bankIcon">
@@ -1466,7 +1412,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="chooseBank">
-                                                                    <button class="btn btn-default">choose Nordnet</button>
+                                                                    <input type="button" class="btn btn-default" onclick="clickChooseBank()" value="choose Nordnet" />
                                                                 </div>
                                                             </div>
                                                             <hr>
@@ -1483,7 +1429,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="chooseBank">
-                                                                    <button class="btn btn-default">choose Nordax</button>
+                                                                    <input type="button" class="btn btn-default" onclick="clickChooseBank()" value="choose Nordax"/>
                                                                 </div>
                                                             </div>
                                                             <hr>
@@ -1501,7 +1447,7 @@
 
                                                                 </div>
                                                                 <div class="chooseBank">
-                                                                    <button class="btn btn-default">choose resurs</button>
+                                                                    <input type="button" class="btn btn-default" onclick="clickChooseBank()" value="choose Resurs" />
                                                                 </div>
                                                             </div>
                                                             <div class="" style="float:right; margin-right: 5px; margin-bottom: 10px;">

@@ -1,0 +1,147 @@
+<html>
+<head>
+    <link href="./assets/js/bootstrap-4.2.1-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="./Living Room _ Lorem ipsum dolor 15_files/bootstrap-extended.css" rel="stylesheet" type="text/css">
+    <script src="./Living Room _ Lorem ipsum dolor 15_files/jquery.min.js" type="text/javascript"></script>
+    <script src="./assets/js/bootstrap-4.2.1-dist/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <style>
+        .sign_button {
+            color: white;
+            width: 164px;
+            height: 42px;
+            background-color: green;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .cancel_icon{
+            font-size: 21px;
+            top: 5px;
+            right: 7px;
+        }
+        .cancel_button{
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #signicatModal{
+            top:100px;
+        }
+        .modal-header {
+            border-bottom:0px;
+        }
+        .list_button{
+            background-color: #f9f9f9;
+            box-shadow: 1px 1px 1px rgba(0,0,0,0.15);
+            padding-top: 18px;
+            padding-bottom: 18px;
+            padding-left: 15px;
+            padding-right: 15px;
+            font-size: 14px;
+            font-weight: 600;
+            max-width: 100%;
+            display: block;
+            color: #3f505f;
+            cursor: pointer;
+            margin-top: 16px;
+            margin-bottom: 16px;
+            transition: .5s;
+            border-radius: 5px;
+            width: 300px;
+            margin-left:200px;
+        }
+        .center{
+           text-align: center;
+        }
+    </style>
+    <script type="text/javascript">
+        function signDocument() {
+            jQuery('#signRunning').hide();
+            jQuery('.options').show();
+            jQuery('#signicatModal').modal('show');
+        }
+        function closeModal() {
+            jQuery('#signicatModal').modal('hide');
+        }
+        function startSign() {
+            jQuery('#signRunning').show();
+            jQuery('.options').hide();
+            setTimeout(function () {
+                window.location.href='success.html';
+            },4000)
+        }
+        jQuery(document).ready(function() {
+
+        });
+    </script>
+</head>
+<body>
+<div style="width: 100%; text-align: center; font-size: 18px; font-weight: bold;" class="panel-heading">Promissory
+    Note
+</div>
+<object border="0" classid="clsid:CA8A9780-280D-11CF-A24D-444553540000" height="1200" width="1000">
+    <param name="_Version" value="65539">
+    <param name="_ExtentX" value="20108">
+    <param name="_ExtentY" value="10866">
+    <param name="_StockProps" value="0">
+    <param name="SRC" value="./assets/pdf/skuldebrev_5100037-1_20190404.pdf">
+    <object data="./assets/pdf/skuldebrev_5100037-1_20190404.pdf" height="800" type="application/pdf" width="1800">
+    </object>
+</object>
+<div div style="width: 100%; padding-left: 498px; font-weight: bold;" class="panel-heading">
+    <span class="glyphicon glyphicon-remove-circle cancel_icon"></span><span class="cancel_button" onclick="window.location.href='homepage.html'">Cancel</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="button" value="Sign document" class="btn-default btn sign_button" onclick="signDocument()">
+</div>
+<div class="modal fade" id="signicatModal" tabindex="-1" role="dialog" aria-labelledby="signicatModal" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content" style="width: 700px;height: 554px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div style="height: 70px;width: 94%;background-color: rgb(56,66,74);margin-left: 20px;">
+                        <img src="assets/images/signicat-logo-white.png" height="50px;">
+                    </div>
+                </div>
+                <div style="text-align: center; padding: 20px;">
+                    <img src="assets/images/sbid_logo.svg" width="80px">
+                </div>
+                <div class="center">
+                    <div class="center options">
+                        Choose how you want to log in
+                    </div>
+                    <div class="list_button options"  onclick="startSign()">
+                        <img src="assets/images/phone.png" style="position: relative;left: -51px;font-size: 21px;top: 5px;"></img>
+                        <span style="position: relative;right: 38px;">BankID på mobil</span>
+                        <i class="glyphicon glyphicon-arrow-right" style="left: 40px"></i>
+                    </div>
+                    <div class="list_button options" onclick="startSign()">
+                        <img src="assets/images/pc.png" style="position: relative;left: -51px;font-size: 21px;top: 1px;"/>
+                        <span style="position: relative;right: 38px;">BankID på dator</span>
+                        <i class="glyphicon glyphicon-arrow-right" style="left: 40px"></i>
+                    </div>
+                </div>
+                <div style="width: 100%;text-align: center;display: none;" id="signRunning">
+                    <div>
+                        Start the BankID program on your device
+                    </div>
+                    <div class="spinner-border text-primary" style="width: 4rem; height: 4rem;margin-top: 40px;" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <div class="center" style="margin-top: 60px;margin-bottom: 6px;font-size: 14px;">
+                    <span style="cursor: pointer" onclick="closeModal()"><u>Cancel</u></span>
+                </div>
+                <div class="center">
+                    <img src="assets/images/powered-by-signicat.png" width="105px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
