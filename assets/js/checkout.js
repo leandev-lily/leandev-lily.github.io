@@ -218,24 +218,32 @@ function selectOtherPayment(){
 }
 
 function show6monthfee() {
-    jQuery('#rate1').html('5.8%');
-    jQuery('#rate2').html('5.5%');
-    jQuery('#rate3').html('6.5%');
-    jQuery('#mc6').html(formatPrice(totalSum/6)+' sek/month');
-    jQuery('#mc12').html(formatPrice(totalSum/12)+' sek/month');
-    jQuery('#mc1').html(formatPrice(totalSum/6)+' sek/month');
-    jQuery('#mc2').html(formatPrice(totalSum/6)+'sek/month');
-    jQuery('#mc3').html(formatPrice(totalSum/6)+' sek/month');
+    var spin = jQuery('body').createSpin('modal');
+    setTimeout(function () {
+        jQuery('#rate1').html('5.8%');
+        jQuery('#rate2').html('5.5%');
+        jQuery('#rate3').html('6.5%');
+        jQuery('#mc6').html(formatPrice(totalSum/6)+' sek/month');
+        jQuery('#mc12').html(formatPrice(totalSum/12)+' sek/month');
+        jQuery('#mc1').html(formatPrice(totalSum/6)+' sek/month');
+        jQuery('#mc2').html(formatPrice(totalSum/6)+'sek/month');
+        jQuery('#mc3').html(formatPrice(totalSum/6)+' sek/month');
+        spin.destroySpin();
+    },1000);
 }
 
 function show12monthfee() {
-    jQuery('#rate1').html('3.8%');
-    jQuery('#rate2').html('3.5%');
-    jQuery('#rate3').html('4.5%');
-    jQuery('#mc12').html(formatPrice(totalSum/12)+' sek/month');
-    jQuery('#mc1').html(formatPrice(totalSum/12)+' sek/month');
-    jQuery('#mc2').html(formatPrice(totalSum/12)+' sek/month');
-    jQuery('#mc3').html(formatPrice(totalSum/12)+' sek/month');
+    var spin = jQuery('body').createSpin('modal');
+    setTimeout(function () {
+        jQuery('#rate1').html('3.8%');
+        jQuery('#rate2').html('3.5%');
+        jQuery('#rate3').html('4.5%');
+        jQuery('#mc12').html(formatPrice(totalSum/12)+' sek/month');
+        jQuery('#mc1').html(formatPrice(totalSum/12)+' sek/month');
+        jQuery('#mc2').html(formatPrice(totalSum/12)+' sek/month');
+        jQuery('#mc3').html(formatPrice(totalSum/12)+' sek/month');
+        spin.destroySpin();
+    },1000);
 }
 function clickChooseBank() {
     jQuery(".progress-bar-info").css('width','0%');
