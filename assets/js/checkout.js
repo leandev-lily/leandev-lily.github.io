@@ -21,6 +21,30 @@ var productsDefinition = [{
         "price": "15003",
         "image": "photo3.jpg",
         "url": "Living Room _ Lorem ipsum dolor 13.html"
+    },
+    {
+        "name": "LOREM IPSUM DOLOR 3",
+        "price": "10999",
+        "image": "photo4.jpg",
+        "url": "Living Room _ Lorem ipsum dolor 3.html"
+    },
+    {
+        "name": "LOREM IPSUM DOLOR 7",
+        "price": "11000",
+        "image": "photo5.jpg",
+        "url": "Living Room _ Lorem ipsum dolor 7.html"
+    },
+    {
+        "name": "LOREM IPSUM DOLOR 4",
+        "price": "15999",
+        "image": "photo6.jpg",
+        "url": "Living Room _ Lorem ipsum dolor 4.html"
+    },
+    {
+        "name": "LOREM IPSUM DOLOR 8",
+        "price": "14636",
+        "image": "photo7.jpg",
+        "url": "Living Room _ Lorem ipsum dolor 8.html"
     }];
 var totalSum = 0;
 jQuery(document).ready(function () {
