@@ -1,13 +1,21 @@
 var productsDefinition = [{
     "name": "LOREM IPSUM DOLOR 15",
     "price": "33900",
-    "image":"photo0.jpg"
+    "image": "photo0.jpg",
+    "url": "Living Room _ Lorem ipsum dolor 15.html"
 },
-{
-    "name":"LOREM IPSUM DOLOR 1",
-    "price": "28500",
-    "image":"photo1.jpg"
-}];
+    {
+        "name": "LOREM IPSUM DOLOR 1",
+        "price": "28500",
+        "image": "photo1.jpg",
+        "url": "Living Room _ Lorem ipsum dolor 1.html"
+    },
+    {
+        "name": "LOREM IPSUM DOLOR 10",
+        "price": "11000",
+        "image": "photo2.jpg",
+        "url": "Living Room _ Lorem ipsum dolor 10.html"
+    }];
 var totalSum = 0;
 jQuery(document).ready(function () {
     var cartProducts  = window.localStorage.getItem("products");
@@ -28,10 +36,10 @@ jQuery(document).ready(function () {
             }else{
                 var productName = productsDefinition[products[i]].name;
                 var image = productsDefinition[products[i]].image;
-
+                var url = productsDefinition[products[i]].url;
                 console.log(productName)
                 tbody.append('<tr valign="top" class="sectiontableentry1" id="row'+products[i]+'"><td align="left">' +
-                    '<span class="cart-images"><img src="./assets/images/'+image+'"></span><a href="" class="cart-item-link">'+productName+'</a>' +
+                    '<span class="cart-images"><img src="./assets/images/'+image+'"></span><a href="'+url+'" class="cart-item-link">'+productName+'</a>' +
                     '<div class="vm-customfield-cart"></div></td><td align="center"><div class="PricesalesPrice vm-display vm-price-value">' +
                     '<span class="vm-price-desc"></span><span class="PricesalesPrice">'+formatPrice(price)+'</span></div></td><td align="right">' +
                     '<div class="cart-product__quantity"><div class="quantity-form"><div><button title="Decrease" onclick="decreaseQuatity(\''+products[i]+'\')" class="quantity-form__decrease-button"></button>' +
