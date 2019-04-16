@@ -1,6 +1,7 @@
 
 jQuery(document).ready(function () {
     updateQuatityInCart();
+    jQuery('.modal').modal({backdrop: 'static', keyboard: false, show: false});
 });
 
 function updateQuatityInCart() {
