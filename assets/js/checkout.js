@@ -177,7 +177,7 @@ function removeProduct(product) {
 }
 
 function formatPrice(price) {
-    return number_format(price,2,',', ' ') + ' kr';
+    return number_format(price,0,'', ' ') + ' kr';
 }
 
 function number_format(number, decimals, dec_point, thousands_sep) {
@@ -208,8 +208,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 function clickLoginButton(){
     jQuery('#addressDiv').show();
     jQuery('#loginForm').hide();
-    jQuery('#activePayment').show();
-    jQuery('#inactivePayment').hide();
+    jQuery('#paymentDiv').show();
 }
 
 function selectOtherPayment(){
