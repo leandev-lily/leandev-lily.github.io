@@ -246,31 +246,53 @@ function show12monthfee() {
 }
 function clickChooseBank() {
     jQuery(".progress-bar-info").css('width','0%');
-    jQuery('#progressBar').modal('show');
-    jQuery('#progressBarText').html('Processing your application.....');
+    jQuery('#signModal').modal('show');
+    jQuery('#signInfo').html('Starting BankId Client.....');
     var i=1;
     var interval = setInterval(function(){
-        jQuery(".progress-bar-info").css('width', (10*i++)+'%');
-        jQuery('#progressBarText').html('Processing your application ' + 10*(i-1) + '% completed.....');
-        if(i==11){
-            jQuery('#progressBar').modal('hide');
+        jQuery(".progress-bar-info").css('width', (25*i++)+'%');
+        jQuery('#signInfo').html('Starting BankId Client.....');
+        if(i>6){
+            jQuery('#signInfo').html('Signing.....');
+        }
+        if(i>=11){
+            jQuery('#signInfo').html('Sign Completed.');
+        }
+        if(i>=12){
+            jQuery('#signModal').modal('hide');
             jQuery('#activePayment').hide();
             clearInterval(interval);
-            window.location.href='pnsign.html';
+            window.location.href="success.html";
         }
     }, 1000);
 
 }
 
 function installmentsClick(){
+    jQuery('.installmentDetail').show();
+}
+
+function getTheOffers() {
     jQuery('.payment_options').removeClass('selected');
     jQuery(".progress-bar-info").css('width','0%');
     jQuery('#progressBar').modal('show');
     jQuery('#progressBarText').html('Calculating offerings.....');
+    jQuery('#nordnetBankIcon').hide();
+    jQuery('#nordaxBankIcon').hide();
+    jQuery('#resursBankIcon').hide();
     var i=1;
     var interval = setInterval(function(){
         jQuery(".progress-bar-info").css('width', (20*i++)+'%');
         jQuery('#progressBarText').html('Calculating offerings ' + 20*(i-1) + '% completed.....');
+        if(i>2){
+            jQuery('#nordnetBankIcon').show();
+        }
+        if(i>3){
+            jQuery('#nordaxBankIcon').show();
+        }
+        if(i>5){
+            jQuery('#resursBankIcon').show();
+        }
         if(i==7){
             jQuery('#progressBar').modal('hide');
             jQuery('#activePayment').hide();
@@ -284,6 +306,7 @@ function installmentsClick(){
 function selectPaymentOption(src){
     jQuery('.payment_options').removeClass('selected');
     src.addClass('selected');
+    jQuery('.installmentDetail').hide();
 }
 
 jQuery(function ($) {

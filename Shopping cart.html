@@ -107,7 +107,7 @@
         .payment_options{
             border: 1px solid;
             padding: 12px;
-            width: 371px;
+            width: 80%;
             margin-left: 36px;
         }
 
@@ -117,7 +117,7 @@
         }
 
         .payment_options:hover{
-            color: black;
+            border-color: black;
         }
         .active{
             cursor: pointer;
@@ -1312,7 +1312,7 @@
                                                     <div style="font-size: 14px;">We support multiple payment methods in our website.</div>
                                                     <hr>
                                                     <div>
-                                                        <p>Personal identity number: <u>19950209-5634</u></p>
+                                                        <p>Social Security number: <u>19950209-5634</u></p>
                                                     </div>
                                                     <hr>
                                                     <ul class="payment_options active" onclick="selectPaymentOption(this)">
@@ -1322,7 +1322,15 @@
                                                     <ul class="payment_options active" onclick="installmentsClick()">
                                                         <li class="tags-title glyphicon glyphicon-tags">&nbsp;</li>
                                                         <a style="cursor: pointer;">Installments</a>
+                                                        <div style="padding-top: 10px;padding-left: 37px;display: none;font-size: 14px;" class="installmentDetail">
+                                                            Will use your information to get UC, blablabla...
+
+                                                        </div>
+                                                        <div style="width: 100%; text-align: right;padding-top: 20px;display: none;" class="installmentDetail">
+                                                            <input type="button" value="Get the offers" class="btn btn-default" onclick="getTheOffers()">
+                                                        </div>
                                                     </ul>
+
                                                     <ul class="payment_options active" onclick="selectPaymentOption(this)">
                                                         <li class="tags-title glyphicon glyphicon-tags">&nbsp;</li>
                                                         <a style="cursor: pointer;">Pay end of next month</a>
@@ -1341,7 +1349,7 @@
                                                 <div style="font-size: 16px;display: none;" id="installmentsDiv">
                                                     <hr>
                                                     <div>
-                                                        <p>Personal identity number: <u>19950209-5634</u></p>
+                                                        <p>Social Security number: <u>19950209-5634</u></p>
                                                     </div>
                                                     <hr>
                                                     <div class="step-content" style="display: block;">
@@ -2395,6 +2403,32 @@ ga('send', 'pageview');
                     </div>
                 </div>
                 <div id="progressBarText">Calculating offerings</div>
+                <div>
+                    <img src="assets/images/nordnet.png" width="80px;" id="nordnetBankIcon">
+                    &nbsp;&nbsp;
+                    <img src="assets/images/nordax-logo.svg" width="80px;" id="nordaxBankIcon">
+                    &nbsp;&nbsp;
+                    <img src="assets/images/resurs-logo-blue.svg" width="80px;" id="resursBankIcon"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="signModal" tabindex="-1" role="dialog" aria-labelledby="addToCartModel" aria-hidden="true">
+    <div class="modal-dialog modal-md" style="top:180px;">
+        <div class="modal-content">
+            <div style="padding: 25px;">
+                <div class="row">
+                    <div style="height: 70px;width: 555px;background-color: rgb(56,66,74);margin-left: 14px;">
+                        <img src="assets/images/signicat-logo-white.png" height="50px;">
+                    </div>
+                </div>
+                <div style="width: 100%;text-align: center;padding-top: 40px;padding-bottom: 80px;"><img src="assets/images/sbid_logo.svg" width="80px"/></div>
+                <div class="progress progress-striped active">
+                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                        <span class="sr-only">Calculating offerings</span>
+                    </div>
+                </div>
+                <div id="signInfo"></div>
             </div>
         </div>
     </div>
