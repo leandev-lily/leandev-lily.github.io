@@ -177,7 +177,7 @@ function removeProduct(product) {
 }
 
 function formatPrice(price) {
-    return number_format(price,0,'', ' ') + ' kr';
+    return number_format(price,2,',', ' ') + ' kr';
 }
 
 function number_format(number, decimals, dec_point, thousands_sep) {
@@ -214,36 +214,151 @@ function clickLoginButton(){
 function selectOtherPayment(){
     jQuery('#activePayment').show();
     jQuery('#installmentsDiv').hide();
+    jQuery('.installmentDetail').hide();
 }
 
-function show6monthfee() {
-    var spin = jQuery('body').createSpin('modal');
-    setTimeout(function () {
-        jQuery('#rate1').html('5.8%');
-        jQuery('#rate2').html('5.5%');
-        jQuery('#rate3').html('6.5%');
-        jQuery('#mc6').html(formatPrice(totalSum/6)+' sek/month');
-        jQuery('#mc12').html(formatPrice(totalSum/12)+' sek/month');
-        jQuery('#mc1').html(formatPrice(totalSum/6)+' sek/month');
-        jQuery('#mc2').html(formatPrice(totalSum/6)+'sek/month');
-        jQuery('#mc3').html(formatPrice(totalSum/6)+' sek/month');
-        spin.destroySpin();
-    },1000);
+var bankInterestAndFeeDefinition = {
+    "nordnet":{
+        "12month":{
+            "interest":0,
+            "invoiceFee":29,
+            "startupFee":495
+        },
+        "24month":{
+            "interest":0.04,
+            "invoiceFee":0,
+            "startupFee":0
+        }
+    },
+    "nordax":{
+        "12month":{
+            "interest":0,
+            "invoiceFee":29,
+            "startupFee":495
+        },
+        "24month":{
+            "interest":0.045,
+            "invoiceFee":0,
+            "startupFee":0
+        }
+    },
+    "resurs":{
+        "12month":{
+            "interest":0.0699,
+            "invoiceFee":29,
+            "startupFee":495
+        },
+        "24month":{
+            "interest":0.1299,
+            "invoiceFee":29,
+            "startupFee":0
+        }
+    }
 }
 
-function show12monthfee() {
-    var spin = jQuery('body').createSpin('modal');
-    setTimeout(function () {
-        jQuery('#rate1').html('3.8%');
-        jQuery('#rate2').html('3.5%');
-        jQuery('#rate3').html('4.5%');
-        jQuery('#mc12').html(formatPrice(totalSum/12)+' sek/month');
-        jQuery('#mc1').html(formatPrice(totalSum/12)+' sek/month');
-        jQuery('#mc2').html(formatPrice(totalSum/12)+' sek/month');
-        jQuery('#mc3').html(formatPrice(totalSum/12)+' sek/month');
-        spin.destroySpin();
-    },1000);
+function calculateStatementFeeActual(startupFee, invoiceFee, nperiod) {
+    return startupFee/nperiod + invoiceFee;
 }
+
+function PMT(rate, nperiod, pv, fv, type) {
+    if (!fv) fv = 0;
+    if (!type) type = 0;
+
+    if (rate == 0) return -(pv + fv)/nperiod;
+
+    var pvif = Math.pow(1 + rate, nperiod);
+    var pmt = rate / (pvif - 1) * -(pv * pvif + fv);
+
+    if (type == 1) {
+        pmt /= (1 + rate);
+    };
+
+    return pmt;
+}
+
+function calculateAnnuityAmount(yearlyInterestRate, nperiod, loanAmount, startupFee) {
+    return PMT(yearlyInterestRate/nperiod, nperiod, -loanAmount-startupFee);
+}
+
+function calculateMonthlyCost(yearlyInterestRate, nperiod, loanAmount, startupFee, invoiceFee) {
+    return calculateAnnuityAmount(yearlyInterestRate, nperiod, loanAmount, startupFee) + calculateStatementFeeActual(startupFee, invoiceFee, nperiod);
+}
+
+function calculateRate(periods, payment, present, future, type, guess) {
+    guess = (guess === undefined) ? 0.01 : guess;
+    future = (future === undefined) ? 0 : future;
+    type = (type === undefined) ? 0 : type;
+
+    // Set maximum epsilon for end of iteration
+    var epsMax = 1e-10;
+
+    // Set maximum number of iterations
+    var iterMax = 10;
+
+    // Implement Newton's method
+    var y, y0, y1, x0, x1 = 0,
+        f = 0,
+        i = 0;
+    var rate = guess;
+    if (Math.abs(rate) < epsMax) {
+        y = present * (1 + periods * rate) + payment * (1 + rate * type) * periods + future;
+    } else {
+        f = Math.exp(periods * Math.log(1 + rate));
+        y = present * f + payment * (1 / rate + type) * (f - 1) + future;
+    }
+    y0 = present + payment * periods + future;
+    y1 = present * f + payment * (1 / rate + type) * (f - 1) + future;
+    i = x0 = 0;
+    x1 = rate;
+    while ((Math.abs(y0 - y1) > epsMax) && (i < iterMax)) {
+        rate = (y1 * x0 - y0 * x1) / (y1 - y0);
+        x0 = x1;
+        x1 = rate;
+        if (Math.abs(rate) < epsMax) {
+            y = present * (1 + periods * rate) + payment * (1 + rate * type) * periods + future;
+        } else {
+            f = Math.exp(periods * Math.log(1 + rate));
+            y = present * f + payment * (1 / rate + type) * (f - 1) + future;
+        }
+        y0 = y1;
+        y1 = y;
+        ++i;
+    }
+    return rate;
+}
+
+function calculateEffectiveRate(nperiod, monthlyCost, loanAmount) {
+    var nominalRate = calculateRate(nperiod, monthlyCost, -loanAmount, 0, 0)*nperiod;
+    return Math.pow(1+(nominalRate/nperiod), nperiod) -1;
+}
+
+
+function displayBankCost(nperiod) {
+    var spin = jQuery('body').createSpin('modal');
+    var allBanks = ['nordnet', 'nordax', 'resurs'];
+    var startCost = Number.MAX_VALUE;
+    allBanks.forEach(function (bankId) {
+        var yearInterest = bankInterestAndFeeDefinition[bankId][nperiod+'month']['interest'];
+        var startupFee = bankInterestAndFeeDefinition[bankId][nperiod+'month']['startupFee'];
+        var invoiceFee = bankInterestAndFeeDefinition[bankId][nperiod+'month']['invoiceFee'];
+        var monthlyCost = calculateMonthlyCost(yearInterest, nperiod, totalSum, startupFee, invoiceFee);
+        jQuery('#'+bankId+'MonthlyCost').html(number_format(monthlyCost.toFixed(0),0, '', ' '));
+        jQuery('#'+bankId+'TotalAmount').html(number_format(monthlyCost.toFixed(0)*nperiod,0, '', ' '));
+
+        var effectiveRate = calculateEffectiveRate(nperiod, monthlyCost, totalSum);
+        jQuery('#'+bankId+'EffectiveInterestRate').html((effectiveRate * 100).toFixed(2) + '%');
+        jQuery('#'+bankId+'AnnualInterestRate').html((yearInterest*100).toFixed(2) + '%');
+        jQuery('#'+bankId+'StartupFee').html(startupFee);
+        jQuery('#'+bankId+'AdminFee').html(invoiceFee);
+        if(startCost > monthlyCost){
+            startCost = monthlyCost;
+        }
+    });
+
+    jQuery('#startCostFor' + nperiod + 'Month').html(number_format(startCost.toFixed(0),0,'', ' '));
+    spin.destroySpin();
+}
+
 function clickChooseBank() {
     jQuery(".progress-bar-info").css('width','0%');
     jQuery('#signModal').modal('show');
@@ -297,7 +412,8 @@ function getTheOffers() {
             jQuery('#progressBar').modal('hide');
             jQuery('#activePayment').hide();
             jQuery('#installmentsDiv').show();
-            show6monthfee();
+            displayBankCost(24);
+            displayBankCost(12);
             clearInterval(interval);
         }
     }, 1000);

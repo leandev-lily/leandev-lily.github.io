@@ -1355,8 +1355,8 @@
                                                     <div class="step-content" style="display: block;">
                                                         <div class="step-content__inner">
                                                             <div class="installmentOption">
-                                                                <input type="radio" name="term" checked="" onclick="show6monthfee()">&nbsp;6 months from <span id="mc6">3170 sek/month</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                <input type="radio" name="term" onclick="show12monthfee()">12 months from <span id="mc12">3170 sek/month</span>
+                                                                <input type="radio" name="term" checked="" onclick="displayBankCost(12)">&nbsp;12 months from <span id="startCostFor12Month"></span> sek/month&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                <input type="radio" name="term" onclick="displayBankCost(24)">24 months from <span id="startCostFor24Month"></span> sek/month
                                                             </div>
                                                             <div class="loanOption">
                                                                 <div class="bankIcon">
@@ -1366,9 +1366,9 @@
                                                                 </div>
                                                                 <div class="loanDescription">
                                                                     <div class="descItem">
-                                                                        <label>Monthly cost</label><span id="mc1">3170 sek/month</span>
+                                                                        <label>Monthly cost</label><span id="nordnetMonthlyCost"></span> sek/month
                                                                         <div style="font-style: italic;">
-                                                                            The total amount of payments is SEK 4 303 and the effective interest rate is 47.21%. Annual interest rate 9.99%, set-up fee 299 SEK and administrative fee 29 SEK / month.
+                                                                            The total amount of payments is SEK <span id="nordnetTotalAmount"></span> and the effective interest rate is <span id="nordnetEffectiveInterestRate"></span>. Annual interest rate <span id="nordnetAnnualInterestRate"></span>, set-up fee <span id="nordnetStartupFee"></span> SEK and administrative fee <span id="nordnetAdminFee"></span> SEK / month.
                                                                         </div>
 
                                                                     </div>
@@ -1384,9 +1384,9 @@
                                                                 </div>
                                                                 <div class="loanDescription">
                                                                     <div class="descItem">
-                                                                        <label>Monthly cost</label><span id="mc2">3161 sek/month</span>
+                                                                        <label>Monthly cost</label><span id="nordaxMonthlyCost"></span> sek/month
                                                                         <div style="font-style: italic;">
-                                                                            The total amount of payments is SEK 4 303 and the effective interest rate is 47.21%. Annual interest rate 9.99%, set-up fee 299 SEK and administrative fee 29 SEK / month.
+                                                                            The total amount of payments is SEK <span id="nordaxTotalAmount"></span> and the effective interest rate is <span id="nordaxEffectiveInterestRate"></span>. Annual interest rate <span id="nordaxAnnualInterestRate"></span>, set-up fee <span id="nordaxStartupFee"></span> SEK and administrative fee <span id="nordaxAdminFee"></span> SEK / month.
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1401,9 +1401,9 @@
                                                                 </div>
                                                                 <div class="loanDescription">
                                                                     <div class="descItem">
-                                                                        <label>Monthly cost</label><span id="mc3">3190 sek/month</span>
+                                                                        <label>Monthly cost</label><span id="resursMonthlyCost"></span> sek/month
                                                                         <div style="font-style: italic;">
-                                                                            The total amount of payments is SEK 4 303 and the effective interest rate is 47.21%. Annual interest rate 9.99%, set-up fee 299 SEK and administrative fee 29 SEK / month.
+                                                                            The total amount of payments is SEK <span id="resursTotalAmount"></span> and the effective interest rate is <span id="resursEffectiveInterestRate"></span>. Annual interest rate <span id="resursAnnualInterestRate"></span>, set-up fee <span id="resursStartupFee"></span> SEK and administrative fee <span id="resursAdminFee"></span> SEK / month.
                                                                         </div>
                                                                     </div>
 
@@ -1860,7 +1860,7 @@
                                                         <div class="product-price">
 
                                                             <div class="PricesalesPrice vm-display vm-price-value"><span
-                                                                    class="PricesalesPrice">15 003 kr</span></div>
+                                                                    class="PricesalesPrice">15 003,00 kr</span></div>
                                                         </div>
 
 
@@ -1913,7 +1913,7 @@
                                                         <div class="product-price">
 
                                                             <div class="PricesalesPrice vm-display vm-price-value"><span
-                                                                    class="PricesalesPrice">24 199 kr</span></div>
+                                                                    class="PricesalesPrice">24 199,00 kr</span></div>
                                                         </div>
 
 
@@ -1966,7 +1966,7 @@
                                                         <div class="product-price">
 
                                                             <div class="PricesalesPrice vm-display vm-price-value"><span
-                                                                    class="PricesalesPrice">15 999 kr</span></div>
+                                                                    class="PricesalesPrice">15 999,00 kr</span></div>
                                                         </div>
 
 
@@ -2019,7 +2019,7 @@
                                                         <div class="product-price">
 
                                                             <div class="PricesalesPrice vm-display vm-price-value"><span
-                                                                    class="PricesalesPrice">17 676 kr</span></div>
+                                                                    class="PricesalesPrice">17 676,00 kr</span></div>
                                                         </div>
 
 
@@ -2072,7 +2072,7 @@
                                                         <div class="product-price">
 
                                                             <div class="PricesalesPrice vm-display vm-price-value"><span
-                                                                    class="PricesalesPrice">14 999 kr</span></div>
+                                                                    class="PricesalesPrice">14 999,00 kr</span></div>
                                                         </div>
 
 
