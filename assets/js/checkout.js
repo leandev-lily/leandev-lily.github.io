@@ -372,15 +372,18 @@ function clickChooseBank() {
         }
         if(i>=11){
             jQuery('#signInfo').html('Sign Completed.');
-        }
-        if(i>=12){
-            jQuery('#signModal').modal('hide');
-            jQuery('#activePayment').hide();
+            jQuery('.progress').removeClass('progress-striped');
+            jQuery('#closeSignModalButton').show();
             clearInterval(interval);
-            window.location.href="success.html";
         }
     }, 1000);
 
+}
+
+function closeSignModal() {
+    jQuery('#signModal').modal('hide');
+    jQuery('#activePayment').hide();
+    window.location.href="success.html";
 }
 
 function installmentsClick(){

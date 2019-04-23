@@ -3863,6 +3863,7 @@ li.fancybox-thumbs-loading {
     float: left;
     margin-left: 35px;
     font-size: 14px;
+    font-weight: 700;
 }
 .loanOption{
     float: none;
@@ -3876,13 +3877,13 @@ li.fancybox-thumbs-loading {
 }
 
 .descItem label{
-    width: 110px;
+    width: 180px;
 }
 
 .chooseBank{
     float: right;
     padding-left: 50px;
-    padding-top: 58px;
+    padding-top: 38px;
 }
 
 .product-service{

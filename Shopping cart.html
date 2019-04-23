@@ -1323,7 +1323,7 @@
                                                         <li class="tags-title glyphicon glyphicon-tags">&nbsp;</li>
                                                         <a style="cursor: pointer;">Installments</a>
                                                         <div style="padding-top: 10px;padding-left: 37px;display: none;font-size: 14px;" class="installmentDetail">
-                                                            Will use your information to get UC, blablabla...
+                                                            A Credit report from UC is required to calculate the installments offers.
 
                                                         </div>
                                                         <div style="width: 100%; text-align: right;padding-top: 20px;display: none;" class="installmentDetail">
@@ -1366,10 +1366,11 @@
                                                                 </div>
                                                                 <div class="loanDescription">
                                                                     <div class="descItem">
-                                                                        <label>Monthly cost</label><span id="nordnetMonthlyCost"></span> sek/month
-                                                                        <div style="font-style: italic;">
-                                                                            The total amount of payments is SEK <span id="nordnetTotalAmount"></span> and the effective interest rate is <span id="nordnetEffectiveInterestRate"></span>. Annual interest rate <span id="nordnetAnnualInterestRate"></span>, set-up fee <span id="nordnetStartupFee"></span> SEK and administrative fee <span id="nordnetAdminFee"></span> SEK / month.
-                                                                        </div>
+                                                                        <div><label>Monthly cost</label><span id="nordnetMonthlyCost"></span> sek/month</div>
+                                                                        <div><label>Effective interest rate</label><span id="nordnetEffectiveInterestRate"></span> sek/month</div>
+                                                                        <!--<div style="font-style: italic;">-->
+                                                                            <!--The total amount of payments is SEK <span id="nordnetTotalAmount"></span> and the effective interest rate is <span id="nordnetEffectiveInterestRate"></span>. Annual interest rate <span id="nordnetAnnualInterestRate"></span>, set-up fee <span id="nordnetStartupFee"></span> SEK and administrative fee <span id="nordnetAdminFee"></span> SEK / month.-->
+                                                                        <!--</div>-->
 
                                                                     </div>
                                                                 </div>
@@ -1384,10 +1385,11 @@
                                                                 </div>
                                                                 <div class="loanDescription">
                                                                     <div class="descItem">
-                                                                        <label>Monthly cost</label><span id="nordaxMonthlyCost"></span> sek/month
-                                                                        <div style="font-style: italic;">
-                                                                            The total amount of payments is SEK <span id="nordaxTotalAmount"></span> and the effective interest rate is <span id="nordaxEffectiveInterestRate"></span>. Annual interest rate <span id="nordaxAnnualInterestRate"></span>, set-up fee <span id="nordaxStartupFee"></span> SEK and administrative fee <span id="nordaxAdminFee"></span> SEK / month.
-                                                                        </div>
+                                                                        <div><label>Monthly cost</label><span id="nordaxMonthlyCost"></span> sek/month</div>
+                                                                        <div><label>Effective interest rate</label><span id="nordaxEffectiveInterestRate"></span> sek/month</div>
+                                                                        <!--<div style="font-style: italic;">-->
+                                                                            <!--The total amount of payments is SEK <span id="nordaxTotalAmount"></span> and the effective interest rate is <span id="nordaxEffectiveInterestRate"></span>. Annual interest rate <span id="nordaxAnnualInterestRate"></span>, set-up fee <span id="nordaxStartupFee"></span> SEK and administrative fee <span id="nordaxAdminFee"></span> SEK / month.-->
+                                                                        <!--</div>-->
                                                                     </div>
                                                                 </div>
                                                                 <div class="chooseBank">
@@ -1401,10 +1403,12 @@
                                                                 </div>
                                                                 <div class="loanDescription">
                                                                     <div class="descItem">
-                                                                        <label>Monthly cost</label><span id="resursMonthlyCost"></span> sek/month
-                                                                        <div style="font-style: italic;">
-                                                                            The total amount of payments is SEK <span id="resursTotalAmount"></span> and the effective interest rate is <span id="resursEffectiveInterestRate"></span>. Annual interest rate <span id="resursAnnualInterestRate"></span>, set-up fee <span id="resursStartupFee"></span> SEK and administrative fee <span id="resursAdminFee"></span> SEK / month.
-                                                                        </div>
+                                                                        <div><label>Monthly cost</label><span id="resursMonthlyCost"></span> sek/month</div>
+                                                                        <div><label>Effective interest rate</label><span id="resursEffectiveInterestRate"></span> sek/month</div>
+
+                                                                        <!--<div style="font-style: italic;">-->
+                                                                            <!--The total amount of payments is SEK <span id="resursTotalAmount"></span> and the effective interest rate is <span id="resursEffectiveInterestRate"></span>. Annual interest rate <span id="resursAnnualInterestRate"></span>, set-up fee <span id="resursStartupFee"></span> SEK and administrative fee <span id="resursAdminFee"></span> SEK / month.-->
+                                                                        <!--</div>-->
                                                                     </div>
 
                                                                 </div>
@@ -2429,6 +2433,9 @@ ga('send', 'pageview');
                     </div>
                 </div>
                 <div id="signInfo"></div>
+                <div style="width: 100%;text-align: center; padding-top: 5px;">
+                    <input class="btn btn-default" width="40px;" type="button" id="closeSignModalButton" onclick="closeSignModal()" value="OK" style="display: none">
+                </div>
             </div>
         </div>
     </div>
