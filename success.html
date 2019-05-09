@@ -136,13 +136,13 @@ jQuery(document).ready(function() {
 			}
 
 		});
-		var i = 10;
-		setInterval(function () {
-			jQuery('#countdown').html(i--);
-			if(i == -1){
-				window.location.href='homepage.html';
-			}
-		},1000)
+		// var i = 10;
+		// setInterval(function () {
+		// 	jQuery('#countdown').html(i--);
+		// 	if(i == -1){
+		// 		window.location.href='homepage.html';
+		// 	}
+		// },1000)
 
 	});
 jQuery(document).ready(function(){
@@ -535,7 +535,7 @@ jQuery(document).ready(function(){
                                     A confirmation of the purchase will be sent to you via email.
 
 									<br>
-									It will go back to the home page in <span id="countdown">10</span> seconds....
+									<input type="button" class="btn btn-default" value="Close" style="float: right; margin-top: 30px; margin-right: 10px;" onclick="window.location='homepage.html'">
 								</div>
 
 
